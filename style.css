@@ -1,0 +1,19 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.header, .footer {
+    background-color: #000;
+    color: white;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    color: #FF0000; /* Coca Cola red */
+}
+
+.content {
+    margin-top: 20px;
+}
+
+/* Additional custom styles */

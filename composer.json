@@ -1,0 +1,11 @@
+{
+    "require-dev": {
+        "twbs/bootstrap": "^5.3",
+        "mouf/nodejs-installer": "*"
+    },
+    "config": {
+        "allow-plugins": {
+            "mouf/nodejs-installer": true
+        }
+    }
+}
