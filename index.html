@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>3D Models - Home</title>
+    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -31,47 +32,38 @@
 
     <!-- Main Container -->
     <div class="container mt-5">
-        <h1>My 3D Models</h1>
-        <div class="row">
-            <!-- Coke Card -->
-            <div class="col-md-4">
-                <div class="card">
-                    <img class="card-img-top" src="images/coke.png" alt="Coca Cola">
-                    <div class="card-body">
-                        <h5 class="card-title">Coca Cola</h5>
-                        <p class="card-text">View the 3D model of a Coca Cola can.</p>
-                        <a href="coke.html" class="btn btn-primary">View Model</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Sprite Card -->
-            <div class="col-md-4">
-                <div class="card">
-                    <img class="card-img-top" src="images/sprite.png" alt="Sprite">
-                    <div class="card-body">
-                        <h5 class="card-title">Sprite</h5>
-                        <p class="card-text">View the 3D model of a Sprite can.</p>
-                        <a href="sprite.html" class="btn btn-primary">View Model</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Fanta Card -->
-            <div class="col-md-4">
-                <div class="card">
-                    <img class="card-img-top" src="images/fanta.png" alt="Fanta">
-                    <div class="card-body">
-                        <h5 class="card-title">Fanta</h5>
-                        <p class="card-text">View the 3D model of a Fanta can.</p>
-                        <a href="fanta.html" class="btn btn-primary">View Model</a>
-                    </div>
-                </div>
-            </div>
+        <h1>Welcome to 3D Models</h1>
+        <div id="modelContainer" class="row">
+            <!-- Dynamic content will be loaded here -->
         </div>
     </div>
 
     <!-- Bootstrap JS and dependencies -->
-    <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
-    <script src="node_modules/@popperjs/core/dist/umd/popper.min.js"></script>
-    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(document).ready(function() {
+    $.getJSON('models.json', function(data) {
+        var modelContainer = $('#modelContainer');
+        modelContainer.empty();
+        data.forEach(function(model) {
+            var modelCard = `
+                <div class="col-md-4">
+                    <div class="card">
+                        <img class="card-img-top" src="${model.image}" alt="${model.name}">
+                        <div class="card-body">
+                            <h5 class="card-title">${model.name}</h5>
+                            <p class="card-text">${model.description}</p>
+                            <a href="${model.x3d_file.replace('.x3d', '.html')}" class="btn btn-primary">View Model</a>
+                        </div>
+                    </div>
+                </div>
+            `;
+            modelContainer.append(modelCard);
+        });
+    });
+});
+
+    </script>
 </body>
 </html>

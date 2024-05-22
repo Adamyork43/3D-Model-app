@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "name": "Coke",
+        "description": "View the 3D model of a Coca Cola can.",
+        "image": "images/coke.png",
+        "x3d_file": "coke.html"
+    },
+    {
+        "id": 2,
+        "name": "Sprite",
+        "description": "View the 3D model of a Sprite can.",
+        "image": "images/sprite.png",
+        "x3d_file": "sprite.html"
+    },
+    {
+        "id": 3,
+        "name": "Fanta",
+        "description": "View the 3D model of a Fanta can.",
+        "image": "images/fanta.png",
+        "x3d_file": "fanta.html"
+    }
+]
